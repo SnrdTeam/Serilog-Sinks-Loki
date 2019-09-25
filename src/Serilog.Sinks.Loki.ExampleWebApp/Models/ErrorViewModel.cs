@@ -1,6 +1,6 @@
 using System;
 
-namespace Serilog.Sinks.Loki.ExampleWebApp.Models
+namespace Adeptik.Serilog.Sinks.Loki.ExampleWebApp.Models
 {
     public class ErrorViewModel
     {

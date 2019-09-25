@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Prometheus;
 
-namespace Serilog.Sinks.Loki.ExampleWebApp
+namespace Adeptik.Serilog.Sinks.Loki.ExampleWebApp
 {
     public class Startup
     {

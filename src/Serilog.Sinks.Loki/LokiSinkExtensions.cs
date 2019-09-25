@@ -1,9 +1,10 @@
 using Serilog.Configuration;
 using Serilog.Sinks.Http;
-using Serilog.Sinks.Loki.Labels;
+using Adeptik.Serilog.Sinks.Loki.Labels;
 using System.Collections.Generic;
+using Serilog;
 
-namespace Serilog.Sinks.Loki
+namespace Adeptik.Serilog.Sinks.Loki
 {
     public static class LokiSinkExtensions
     {

@@ -1,4 +1,4 @@
-namespace Serilog.Sinks.Loki.Labels
+namespace Adeptik.Serilog.Sinks.Loki.Labels
 {
     public class LokiLabel
     {

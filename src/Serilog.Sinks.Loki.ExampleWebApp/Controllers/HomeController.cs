@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using Adeptik.Serilog.Sinks.Loki.ExampleWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Serilog.Sinks.Loki.ExampleWebApp.Models;
 
-namespace Serilog.Sinks.Loki.ExampleWebApp.Controllers
+namespace Adeptik.Serilog.Sinks.Loki.ExampleWebApp.Controllers
 {
     public class HomeController : Controller
     {

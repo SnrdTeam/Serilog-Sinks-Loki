@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using Adeptik.Serilog.Sinks.Loki;
 using Serilog.Sinks.Loki.Tests.Infrastructure;
 using Xunit;
 

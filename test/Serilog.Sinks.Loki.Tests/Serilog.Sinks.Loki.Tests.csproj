@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Serilog.Sinks.Loki\Serilog.Sinks.Loki.csproj" />
+      <ProjectReference Include="..\..\src\Serilog.Sinks.Loki\Adeptik.Serilog.Sinks.Loki.csproj" />
     </ItemGroup>
 
 </Project>

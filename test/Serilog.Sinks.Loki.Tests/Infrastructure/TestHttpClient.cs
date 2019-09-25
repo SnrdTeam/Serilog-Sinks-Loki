@@ -1,3 +1,4 @@
+using Adeptik.Serilog.Sinks.Loki;
 using System.Net.Http;
 using System.Threading.Tasks;
 

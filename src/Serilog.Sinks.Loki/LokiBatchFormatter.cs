@@ -6,9 +6,9 @@ using System.Linq;
 using Serilog.Events;
 using Serilog.Formatting;
 using Serilog.Sinks.Http;
-using Serilog.Sinks.Loki.Labels;
+using Adeptik.Serilog.Sinks.Loki.Labels;
 
-namespace Serilog.Sinks.Loki
+namespace Adeptik.Serilog.Sinks.Loki
 {
     internal class LokiBatchFormatter : IBatchFormatter 
     {

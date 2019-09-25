@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Serilog.Sinks.Http;
 
-namespace Serilog.Sinks.Loki
+namespace Adeptik.Serilog.Sinks.Loki
 {
     public class LokiHttpClient : IHttpClient
     {

@@ -1,4 +1,4 @@
-namespace Serilog.Sinks.Loki
+namespace Adeptik.Serilog.Sinks.Loki
 {
     public static class LokiRouteBuilder
     {

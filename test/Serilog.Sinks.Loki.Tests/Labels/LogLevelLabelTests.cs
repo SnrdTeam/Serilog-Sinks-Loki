@@ -1,4 +1,5 @@
 using System.Linq;
+using Adeptik.Serilog.Sinks.Loki;
 using Newtonsoft.Json;
 using Serilog.Sinks.Loki.Tests.Infrastructure;
 using Shouldly;

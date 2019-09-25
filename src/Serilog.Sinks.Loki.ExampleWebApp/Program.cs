@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Serilog.Events;
-using Serilog.Sinks.Loki.Labels;
-using Serilog.Sinks.Prometheus;
+using Serilog;
 
-namespace Serilog.Sinks.Loki.ExampleWebApp
+namespace Adeptik.Serilog.Sinks.Loki.ExampleWebApp
 {
     public class Program
     {

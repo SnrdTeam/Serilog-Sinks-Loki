@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Serilog.Sinks.Loki
+namespace Adeptik.Serilog.Sinks.Loki
 {
     internal class LokiEntry 
     {

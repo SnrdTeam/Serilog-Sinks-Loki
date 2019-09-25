@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using Serilog.Sinks.Loki.Labels;
+using Adeptik.Serilog.Sinks.Loki.Labels;
 using Serilog.Sinks.Loki.Tests.Infrastructure;
 using Shouldly;
 using Xunit;
+using Adeptik.Serilog.Sinks.Loki;
 
 namespace Serilog.Sinks.Loki.Tests.Labels
 {

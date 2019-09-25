@@ -1,3 +1,4 @@
+using Adeptik.Serilog.Sinks.Loki;
 using Serilog.Sinks.Loki.Tests.Infrastructure;
 using Shouldly;
 using Xunit;

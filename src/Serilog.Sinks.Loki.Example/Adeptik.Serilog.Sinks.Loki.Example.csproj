@@ -3,17 +3,19 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp2.2</TargetFramework>
+        <AssemblyName>Adeptik.Serilog.Sinks.Loki.Example</AssemblyName>
+        <RootNamespace>Adeptik.Serilog.Sinks.Loki.Example</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Serilog.Sinks.Loki\Serilog.Sinks.Loki.csproj" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
       <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
       <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
       <PackageReference Include="Serilog.Sinks.File" Version="4.0.1-dev-00801" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Serilog.Sinks.Loki\Adeptik.Serilog.Sinks.Loki.csproj" />
     </ItemGroup>
 
 </Project>

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using Serilog.Context;
 using Serilog.Sinks.Http.BatchFormatters;
-using Serilog.Sinks.Loki.Labels;
+using Adeptik.Serilog.Sinks.Loki.Labels;
+using Serilog;
 
-namespace Serilog.Sinks.Loki.Example
+namespace Adeptik.Serilog.Sinks.Loki.Example
 {
     class Program
     {

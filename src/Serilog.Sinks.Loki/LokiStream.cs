@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
-using Serilog.Sinks.Loki.Labels;
+using Adeptik.Serilog.Sinks.Loki.Labels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Serilog.Sinks.Loki
+namespace Adeptik.Serilog.Sinks.Loki
 {
     internal class LokiStream
     {

@@ -1,7 +1,8 @@
+using Adeptik.Serilog.Sinks.Loki;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Serilog.Sinks.Loki.Example
+namespace Adeptik.Serilog.Sinks.Loki.Example
 {
     public class LokiExampleHttpClient : LokiHttpClient
     {
