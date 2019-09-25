@@ -18,14 +18,14 @@ namespace Serilog.Sinks.Loki
 
         public void SetAuthCredentials(LokiCredentials credentials)
         {
-            if (!(credentials is BasicAuthCredentials c))
+            if (string.IsNullOrEmpty(credentials.Username) || string.IsNullOrEmpty(credentials.Password))
                 return;
 
             var headers = HttpClient.DefaultRequestHeaders;
             if (headers.Any(x => x.Key == "Authorization"))
                 return;
 
-            var token = Base64Encode($"{c.Username}:{c.Password}");
+            var token = Base64Encode($"{credentials.Username}:{credentials.Password}");
             headers.Add("Authorization", $"Basic {token}");
         }
 
@@ -33,11 +33,6 @@ namespace Serilog.Sinks.Loki
         {
             content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
             return HttpClient.PostAsync(requestUri, content);
-            
-/*            var r = content.ReadAsStringAsync().Result;
-            var result = await HttpClient.PostAsync(requestUri, content);
-            var body = result.Content.ReadAsStringAsync().Result; //right!
-            return result;*/
         }
 
         public virtual void Dispose()
