@@ -1,6 +1,5 @@
 using System.Text.RegularExpressions;
 using Serilog.Sinks.Loki.Tests.Infrastructure;
-using Shouldly;
 using Xunit;
 
 namespace Serilog.Sinks.Loki.Tests.HttpClientTests
@@ -18,7 +17,7 @@ namespace Serilog.Sinks.Loki.Tests.HttpClientTests
         public void ContentMatchesApproved()
         {
             // Arrange
-            var credentials = new NoAuthCredentials("http://test:80");
+            var credentials = new LokiCredentials("http://test:80");
             var log = new LoggerConfiguration()
                 .MinimumLevel.Information()
                 .WriteTo.LokiHttp(credentials, httpClient: _client)
@@ -29,8 +28,8 @@ namespace Serilog.Sinks.Loki.Tests.HttpClientTests
             log.Dispose();
 
             // Assert
-            _client.Content.ShouldMatchApproved(x => x.WithScrubber(s => Regex.Replace(s,
-                @"\d{1,2}\d{1,2}\d{2,4}-\d{1,2}-\d{1,2}T\d{1,2}:\d{1,2}:\d{1,2}.\d{1,7}\+\d{2}:\d{2}", "<datetime>")));
+            Assert.Equal("{\"streams\":[{\"labels\":\"{level=\\\"error\\\"}\",\"entries\":[{\"ts\":\"<datetime>\",\"line\":\"Something's wrong\"}]}]}", 
+                         Regex.Replace(_client.Content, @"\d{1,2}\d{1,2}\d{2,4}-\d{1,2}-\d{1,2}T\d{1,2}:\d{1,2}:\d{1,2}.\d{1,7}\+\d{2}:\d{2}", "<datetime>"));
         }
     }
 }

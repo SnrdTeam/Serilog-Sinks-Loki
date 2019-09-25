@@ -19,7 +19,7 @@ namespace Serilog.Sinks.Loki.Tests.HttpClientTests
         public void RequestUriIsCorrect(string address)
         {
             // Arrange
-            var credentials = new NoAuthCredentials(address);
+            var credentials = new LokiCredentials(address);
             var log = new LoggerConfiguration()
                 .MinimumLevel.Information()
                 .WriteTo.LokiHttp(credentials, httpClient: _client)

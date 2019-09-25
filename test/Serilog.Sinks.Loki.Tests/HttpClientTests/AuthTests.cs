@@ -17,7 +17,7 @@ namespace Serilog.Sinks.Loki.Tests.HttpClientTests
         public void BasicAuthHeaderIsCorrect()
         {
             // Arrange
-            var credentials = new BasicAuthCredentials("http://test:80", "Walter", "White");
+            var credentials = new LokiCredentials("http://test:80", "Walter", "White");
             var log = new LoggerConfiguration()
                 .MinimumLevel.Information()
                 .WriteTo.LokiHttp(credentials, httpClient: _client)
@@ -39,7 +39,7 @@ namespace Serilog.Sinks.Loki.Tests.HttpClientTests
         public void NoAuthHeaderIsCorrect()
         {
             // Arrange
-            var credentials = new NoAuthCredentials("http://test:80");
+            var credentials = new LokiCredentials("http://test:80");
             var log = new LoggerConfiguration()
                 .MinimumLevel.Information()
                 .WriteTo.LokiHttp(credentials, httpClient: _client)

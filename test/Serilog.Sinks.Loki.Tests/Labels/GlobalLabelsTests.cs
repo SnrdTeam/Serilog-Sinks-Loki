@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using Serilog.Sinks.Loki.Labels;
 using Serilog.Sinks.Loki.Tests.Infrastructure;
 using Shouldly;
 using Xunit;
@@ -8,24 +10,28 @@ namespace Serilog.Sinks.Loki.Tests.Labels
 {
     public class GlobalLabelsTests : IClassFixture<HttpClientTestFixture>
     {
-        private readonly HttpClientTestFixture _httpClientTestFixture;
         private readonly TestHttpClient _client;
-        private readonly BasicAuthCredentials _credentials;
+        private readonly LokiCredentials _credentials;
 
-        public GlobalLabelsTests(HttpClientTestFixture httpClientTestFixture)
+        public GlobalLabelsTests()
         {
-            _httpClientTestFixture = httpClientTestFixture;
             _client = new TestHttpClient();
-            _credentials = new BasicAuthCredentials("http://test:80", "Walter", "White");
+            _credentials = new LokiCredentials("http://test:80", "Walter", "White");
         }
         
         [Fact]
         public void GlobalLabelsCanBeSet()
         {
+            var logLabels = new List<LokiLabel>
+            {
+                new LokiLabel("app", "demo"),
+                new LokiLabel("namespace", "prod")
+            };
+
             // Arrange
             var log = new LoggerConfiguration()
                 .MinimumLevel.Information()
-                .WriteTo.LokiHttp(_credentials, new TestLabelProvider(), _client)
+                .WriteTo.LokiHttp(_credentials, logLabels, _client)
                 .CreateLogger();
             
             // Act
@@ -34,7 +40,7 @@ namespace Serilog.Sinks.Loki.Tests.Labels
             
             // Assert
             var response = JsonConvert.DeserializeObject<TestResponse>(_client.Content);
-            response.Streams.First().Labels.ShouldBe("{app=\"tests\",level=\"error\"}");
+            response.Streams.First().Labels.ShouldBe("{app=\"demo\",namespace=\"prod\",level=\"error\"}");
         }
     }
 }

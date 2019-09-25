@@ -9,12 +9,12 @@ namespace Serilog.Sinks.Loki.Tests.Labels
     public class LogLevelTests
     {
         private readonly TestHttpClient _client;
-        private readonly BasicAuthCredentials _credentials;
+        private readonly LokiCredentials _credentials;
 
         public LogLevelTests()
         {
             _client = new TestHttpClient();
-            _credentials = new BasicAuthCredentials("http://test:80", "Walter", "White");
+            _credentials = new LokiCredentials("http://test:80", "Walter", "White");
         }
         
         [Fact]

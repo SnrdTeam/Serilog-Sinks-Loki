@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using Serilog.Context;
 using Serilog.Sinks.Http.BatchFormatters;
+using Serilog.Sinks.Loki.Labels;
 
 namespace Serilog.Sinks.Loki.Example
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            var r = new DefaultBatchFormatter();
-            
+        static void Main()
+        {            
             Exception ex; 
             try
             {
@@ -20,11 +20,16 @@ namespace Serilog.Sinks.Loki.Example
                 ex = e;
             }
             
-            var credentials = new NoAuthCredentials("http://localhost:3100");
+            var credentials = new LokiCredentials("http://localhost:3100");
+            var logLabels = new List<LokiLabel>
+            {
+                new LokiLabel("app", "demo"),
+                new LokiLabel("namespace", "prod")
+            };
             var log = new LoggerConfiguration()
                     .MinimumLevel.Verbose()
                     .Enrich.FromLogContext()
-                    .WriteTo.LokiHttp(credentials, new LogLabelProvider(), new LokiExampleHttpClient())
+                    .WriteTo.LokiHttp(credentials, logLabels, new LokiExampleHttpClient())
                 .CreateLogger();
 
             
