@@ -1,10 +1,7 @@
-using System.Linq;
-using Newtonsoft.Json;
-using Serilog.Sinks.Loki.Tests.Infrastructure;
-using Shouldly;
+using Adeptik.Serilog.Sinks.Loki.Tests.Infrastructure;
 using Xunit;
 
-namespace Serilog.Sinks.Loki.Tests.Labels
+namespace Adeptik.Serilog.Sinks.Loki.Tests.Labels
 {
     public class LocalLabelsTests : IClassFixture<HttpClientTestFixture>
     {

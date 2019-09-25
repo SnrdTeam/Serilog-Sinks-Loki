@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Serilog.Sinks.Loki.Tests.Infrastructure
+namespace Adeptik.Serilog.Sinks.Loki.Tests.Infrastructure
 {
     public class TestResponse
     {

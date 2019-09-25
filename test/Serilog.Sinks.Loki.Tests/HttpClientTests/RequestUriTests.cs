@@ -1,9 +1,9 @@
-using Adeptik.Serilog.Sinks.Loki;
-using Serilog.Sinks.Loki.Tests.Infrastructure;
+using Adeptik.Serilog.Sinks.Loki.Tests.Infrastructure;
+using Serilog;
 using Shouldly;
 using Xunit;
 
-namespace Serilog.Sinks.Loki.Tests.HttpClientTests
+namespace Adeptik.Serilog.Sinks.Loki.Tests.HttpClientTests
 {
     public class RequestUriTests
     {

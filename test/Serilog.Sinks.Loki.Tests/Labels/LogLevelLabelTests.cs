@@ -1,11 +1,11 @@
 using System.Linq;
-using Adeptik.Serilog.Sinks.Loki;
 using Newtonsoft.Json;
-using Serilog.Sinks.Loki.Tests.Infrastructure;
+using Adeptik.Serilog.Sinks.Loki.Tests.Infrastructure;
 using Shouldly;
 using Xunit;
+using Serilog;
 
-namespace Serilog.Sinks.Loki.Tests.Labels
+namespace Adeptik.Serilog.Sinks.Loki.Tests.Labels
 {
     public class LogLevelTests
     {

@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Adeptik.Serilog.Sinks.Loki.Labels;
-using Serilog.Sinks.Loki.Tests.Infrastructure;
+using Adeptik.Serilog.Sinks.Loki.Tests.Infrastructure;
 using Shouldly;
 using Xunit;
-using Adeptik.Serilog.Sinks.Loki;
+using Serilog;
 
-namespace Serilog.Sinks.Loki.Tests.Labels
+namespace Adeptik.Serilog.Sinks.Loki.Tests.Labels
 {
     public class GlobalLabelsTests : IClassFixture<HttpClientTestFixture>
     {
