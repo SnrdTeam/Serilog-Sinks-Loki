@@ -8,11 +8,13 @@
         <PackageTags>loki,serilog,sinks</PackageTags>
         <title>Serilog.Sinks.Loki</title>
         <PackageReleaseNotes></PackageReleaseNotes>
-        <Authors>SNRD Team</Authors>
-        <Description>A Serilog Sink for Grafana's Loki log aggregator</Description>
+        <Authors>SNRD Team, Joseph Woodward</Authors>
+        <Description>A Serilog Sink for Grafana's Loki log aggregator
+Based on original project Serilog.Sinks.Loki  (https://github.com/JosephWoodward/Serilog-Sinks-Loki) by Joseph Woodward
+</Description>
         <PackageProjectUrl>https://github.com/SnrdTeam/Serilog-Sinks-Loki</PackageProjectUrl>
         <PackageIconUrl>https://raw.githubusercontent.com/SnrdTeam/Serilog-Sinks-Loki/master/assets/logo_128_128.png</PackageIconUrl>
-        <PackageLicense>https://github.com/JosephWoodward/Serilog-Sinks-Loki/blob/master/LICENSE</PackageLicense>
+        <PackageLicense>https://github.com/SnrdTeam/Serilog-Sinks-Loki/blob/master/LICENSE</PackageLicense>
         <RootNamespace>Adeptik.Serilog.Sinks.Loki</RootNamespace>
     </PropertyGroup>
 
@@ -21,7 +23,16 @@
       <AssemblyOriginatorKeyFile>Adeptik-PublicKey.snk</AssemblyOriginatorKeyFile>
       <DelaySign>False</DelaySign>
       <PublicSign>True</PublicSign>
+      <Company>SNRD Team</Company>
     </PropertyGroup>
+
+    <Target Name="ValidateVersion" BeforeTargets="BeforeBuild">
+      <PropertyGroup>
+        <!-- Regular expression from https://github.com/semver/semver/issues/232 -->
+        <IsVersionValid>$([System.Text.RegularExpressions.Regex]::IsMatch($(Version), `^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$`, RegexOptions.None))</IsVersionValid>
+      </PropertyGroup>
+      <Error Text="Version has invalid format. See https://semver.org" Condition=" '$(IsVersionValid)' != 'True' " />
+    </Target>
 
     <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
